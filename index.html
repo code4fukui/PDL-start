@@ -3,8 +3,9 @@
 </head><body>
 <h1>PDLスタート - 行政オープンデータ規約作成補助ツール</h1>
 <input type=text id=inname placeholder="自治体名を入力"><br>
-<label><input type=checkbox id=thirdparty>第三者の権利の侵害について特記すべき内容がある</label><br>
-<label><input type=checkbox id=chkrestrict>個別法令による利用の制約があるコンテンツがある</label><br>
+<label><input type=checkbox id=thirdparty>第三者の権利の侵害について特記すべき内容がある (1.2.)</label>
+<label><input type=checkbox id=chkrestrict>個別法令による利用の制約があるコンテンツがある (1.3.)</label>
+<br>
 PDL （下記を「著作権について」に記載します）<br>
 <textarea id=ta>
 </textarea>
@@ -16,7 +17,7 @@ PDL （下記を「著作権について」に記載します）<br>
 
 
 <script type="module">
-inname.onchange = chkrestrict.onchange = () => {
+inname.onchange = chkrestrict.onchange = thirdparty.onchange = () => {
   const name = inname.value;
   const append2 = thirdparty.checked ? `1.2. 第三者の権利を侵害しないようにしてください<br>
 以下の表示は、第三者に権利があることを表示、示唆しています。<br>
@@ -38,7 +39,6 @@ inname.onchange = chkrestrict.onchange = () => {
 （出典記載例）出典：「○○動向調査」（${name}）（当該ページのURL）<br>
 <br>
 ${append2}
-<br>
 ${append}
 1.4. 本利用ルールが適用されないコンテンツについて<br>
 以下のコンテンツについては、本利用ルールの適用外です。<br>
